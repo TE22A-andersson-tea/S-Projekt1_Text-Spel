@@ -6,7 +6,7 @@ public class Inventory {
     private ArrayList<Item> items = new ArrayList<>(maxItems);
 
     public Inventory(){
-
+        
     }
 
     public void display(){

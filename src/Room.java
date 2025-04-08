@@ -1,13 +1,18 @@
 import java.util.ArrayList;
 
 public class Room {
-    private Furniture contains;
+    private String description;
+    private String name;
     //private String whichRoom; till exempel "tredje dörren till höger"
     private boolean locked;
-    private ArrayList<Door> doors = new ArrayList<>();
+    public ArrayList<Furniture> furnitures = new ArrayList<>();
 
-    public Room(){
+    public Room(String description, String name, boolean locked){
 
+    }
+
+    public String getDescription(){
+        return name + description;
     }
 
     public boolean enterRoom(String whichRoom){
@@ -15,4 +20,14 @@ public class Room {
 
         return true;
     }
+
+    public void addFurniture(){
+
+    }
+
+    public void displayInventory(){
+        
+    }
+
+
 }

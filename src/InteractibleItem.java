@@ -1,12 +1,16 @@
+
+import java.util.Scanner;
+
+
 public class InteractibleItem extends Item{
     public int usesCurrent;
     public int usesMax;
+    Scanner myScanner = new Scanner(System.in);
     
     public InteractibleItem(String name, String description, int usesCurrent, int usesMax){
         super(name,description);
         this.usesCurrent = usesCurrent;
         this.usesMax = usesMax;
-
     }
 
 
@@ -22,7 +26,7 @@ public class InteractibleItem extends Item{
         }
     }
 
-    public void useItem(){
-        
+    public void useItem(String name){
+
     }
 }

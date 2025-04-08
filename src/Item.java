@@ -1,9 +1,8 @@
-import java.util.Scanner;
 
 public class Item {
     private String name;
     private String description;
-    Scanner myScanner = new Scanner(System.in);
+    //Scanner myScanner = new Scanner(System.in);
 
     public Item(String name, String description){
         this.name = name;

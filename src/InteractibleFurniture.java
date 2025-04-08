@@ -3,13 +3,21 @@ public class InteractibleFurniture extends Furniture{
     private boolean locked;
     private int id;
 
-    public InteractibleFurniture(String name, String description){
+    public InteractibleFurniture(String name, String description, boolean locked, int id){
         super(name, description);
+        this.locked = locked;
+        this.id = id;
+        contains = new Inventory();
 
     }
 
     @Override
-    public String investigate(){
+    public String investigate(boolean locked){
+        return description;
+    }
+
+    @Override
+    public String getDescription(){
         return description;
     }
 }

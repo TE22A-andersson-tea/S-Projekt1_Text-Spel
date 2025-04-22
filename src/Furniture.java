@@ -8,8 +8,9 @@ public class Furniture {
         this.description = description;
     }
 
-    public String investigate(){
-        return description;
+    public String investigate(boolean locked, String name, String description){
+        locked = false;
+        return name + description;
     }
 
     public String getDescription(){

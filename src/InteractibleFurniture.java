@@ -12,8 +12,15 @@ public class InteractibleFurniture extends Furniture{
     }
 
     @Override
-    public String investigate(boolean locked){
-        return description;
+    public String investigate(boolean locked, String name, String description){
+        if (locked = true) {
+            return "Sorry " + name + " is locked";
+        }
+        else if (locked = false){
+            contains.displayInventory();
+           
+        }
+        return description; 
     }
 
     @Override

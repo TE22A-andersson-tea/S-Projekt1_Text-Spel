@@ -19,6 +19,7 @@ public class Inventory {
         if (numItems < maxItems) {
             items.add(item);
             numItems++;
+            System.out.println(item + " has been added to your inventory!");
         }
         else{
             System.out.println("You have too many items in your backpack!\n You have to leave one item too pick up a new one");

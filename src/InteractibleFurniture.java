@@ -5,6 +5,8 @@ public class InteractibleFurniture extends Furniture{
 
     public InteractibleFurniture(String name, String description, boolean locked, int id){
         super(name, description);
+        this.name = name;
+        this.description = description;
         this.locked = locked;
         this.id = id;
         contains = new Inventory();

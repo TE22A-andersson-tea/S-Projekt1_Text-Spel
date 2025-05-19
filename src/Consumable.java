@@ -1,16 +1,12 @@
 public class Consumable extends InteractibleItem{
     
-    public Consumable (String name, String description, int usesCurrent, int usesMax){
-        super(name, description, usesCurrent, usesMax);
-        this.name = name;
-        this.description = description;
-        this.usesCurrent = usesCurrent;
-        this.usesMax = usesMax;
+    public Consumable (String name, String description, int usesCurrent, int usesMax, int id){
+        super(name, description, usesCurrent, usesMax, id);   
 
     }
 
     @Override
     public void useItem(InteractibleItem interactibleItem){
-
+        Inventory.delete();
     }
 }

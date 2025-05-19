@@ -5,12 +5,9 @@ public class InteractibleItem extends Item{
     public int usesMax;
     Scanner myScanner = new Scanner(System.in);
     
-    public InteractibleItem(String name, String description, int usesCurrent, int usesMax){
-        super(name,description);
-        this.name = name;
-        this.description = description;
-        this.usesCurrent = usesCurrent;
-        this.usesMax = usesMax;
+    public InteractibleItem(String name, String description, int id, int usesCurrent, int usesMax){
+        super(name, description, usesCurrent, usesMax, id);
+    
     }
 
 

@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Inventory {
     private int numItems;
     private int maxItems = 7;
-    private ArrayList<Item> items = new ArrayList<>(maxItems);
+    private List<Item> items = new ArrayList<>(maxItems);
 
     public Inventory(){
 
@@ -31,7 +32,7 @@ public class Inventory {
 
     public void leaveItem(){
         int index = Utilities.chooseAlternative("Which item would you like to leave? ", items, true);
-        items.delete(item(index));
+        items.delete(index);
        
     } 
         

@@ -1,20 +1,14 @@
 
-public class Item {
-    public String name;
-    public String description;
+public class Item extends WorldObject{
+    public int usesCurrent;
+    public int usesMax;
     //Scanner myScanner = new Scanner(System.in);
 
-    public Item(String name, String description){
-        this.name = name;
-        this.description = description;
+    public Item(String name, String description, int id, int usesCurrent, int usesMax){
+        super(name, description, id);
+        this.usesCurrent = usesCurrent;
+        this.usesMax = usesMax;
     }
 
-    public String getDescription(){
-        return description;
-    }
-
-
-    public String getName(){
-        return name;
-    }
+    
 }

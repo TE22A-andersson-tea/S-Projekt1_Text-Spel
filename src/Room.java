@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Room {
     private String description;
     private String name;
-    //private String whichRoom; till exempel "tredje dörren till höger"
+    //private String whichRoom; till exempel "tredje dörren till höger"  ???
     private boolean locked;
     public ArrayList<Furniture> furnitures = new ArrayList<>();
 
@@ -12,21 +12,25 @@ public class Room {
     }
 
     public String getDescription(){
-        return name + description;
+        return description;
     }
 
-    public boolean enterRoom(String whichRoom){
-        System.out.println("Do you wish to enter " + whichRoom + "?");
-
-        return true;
+    public String getName(){
+        return name;
     }
 
-    public void addFurniture(){
+    /*public boolean enterRoom(String whichRoom){ Vad vill jag att denna ska göra?
+        
+    }*/
 
-    }
+    /*public void addFurniture(){ Behöver jag denna??
+
+    }*/
 
     public void displayInventory(){
-        
+        for (Furniture furniture : furnitures) {
+            System.out.println(furniture);
+        }
     }
 
 

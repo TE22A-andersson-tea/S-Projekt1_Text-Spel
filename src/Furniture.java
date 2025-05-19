@@ -1,18 +1,16 @@
-public class Furniture {
-    public String name;
-    public String description;
+public class Furniture extends WorldObject{
+    public Room room;
     
 
-    public Furniture(String name, String description){
-        this.name = name;
-        this.description = description;
+    public Furniture(String name, String description, int id, Room room ){
+       super(name, description, id);
+        this.room = room;
     }
 
-    public String investigate(boolean locked, String name, String description){
-        return name + description;
+    public void investigate(boolean locked, String name, String description){
+        System.out.println("This is a " + name);
+        System.out.println(description); 
     }
 
-    public String getDescription(){
-        return description;
-    }
+    
 }

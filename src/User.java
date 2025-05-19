@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class User {
     private String name;
     private Inventory backpack;
@@ -11,8 +13,12 @@ public class User {
         this.backpack = backpack;
     }
 
-    public void chooseName(){
-
+    public void setName(){
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("What is your name?");
+        String name = myScanner.nextLine();
+        System.out.println("Hello " + name + "!");
+        
     }
 
     public String getName(){

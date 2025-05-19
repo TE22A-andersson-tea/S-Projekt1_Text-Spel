@@ -1,5 +1,6 @@
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void app(String[] args) throws Exception {
         System.out.println("Hello, World!");
+        new Main().main();
     }
 }

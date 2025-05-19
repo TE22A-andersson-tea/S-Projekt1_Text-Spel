@@ -25,7 +25,7 @@ public class InteractibleFurniture extends Furniture{
         return description; 
     }
 
-    @Override
+   
     public String getDescription(){
         return description;
     }

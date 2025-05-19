@@ -1,6 +1,4 @@
-
 import java.util.Scanner;
-
 
 public class InteractibleItem extends Item{
     public int usesCurrent;
@@ -26,11 +24,13 @@ public class InteractibleItem extends Item{
             return true;
         }
         else{
+            System.out.println("Okey, moving on...");
             return false;
         }
     }
 
     public void useItem(InteractibleItem interactibleItem){
-        
+         
+
     }
 }

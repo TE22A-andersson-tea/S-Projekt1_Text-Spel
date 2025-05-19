@@ -9,7 +9,6 @@ public class Furniture {
     }
 
     public String investigate(boolean locked, String name, String description){
-        locked = false;
         return name + description;
     }
 

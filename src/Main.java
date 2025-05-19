@@ -1,6 +1,10 @@
 public class Main {
     
-    
+    public void main() {
+        User user1 = new User(null);
+        user1.chooseName();
+        
+    }
     /*
      * Item{
      * unock(Key test)
@@ -19,5 +23,6 @@ public class Main {
      * currentItem.setStatus(success)
      * }
      */
+
 }
 

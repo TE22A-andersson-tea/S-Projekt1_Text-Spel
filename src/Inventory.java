@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Inventory {
     private int numItems;
@@ -10,8 +11,9 @@ public class Inventory {
     }
 
     public void displayInventory(){
-        for (Item item: items){
-            System.out.println(item);
+        for (int i = 0; i < maxItems; i++) {
+            Item item = items.get(i); 
+            System.out.println((i+1) + item.getName());
         }
     }
 
@@ -26,4 +28,11 @@ public class Inventory {
         }
        
     }
+
+    public void leaveItem(){
+        int index = Utilities.chooseAlternative("Which item would you like to leave? ", items, true);
+        items.delete(item(index));
+       
+    } 
+        
 }

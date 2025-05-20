@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class User {
     private String name;
-    public Inventory backpack;
+    private Inventory backpack;
 
     public User(String name){
         this.name = name;
@@ -18,10 +18,13 @@ public class User {
         System.out.println("What is your name?");
         String name = myScanner.nextLine();
         return "Hello " + name + "!";
-        
     }
 
     public String getName(){
         return name;
+    }
+
+    public void setInventory(Inventory backpack) {
+        this.backpack = backpack;
     }
 }

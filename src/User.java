@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class User {
     private String name;
-    private Inventory backpack;
+    public Inventory backpack;
 
     public User(String name){
         this.name = name;

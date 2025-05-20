@@ -4,6 +4,6 @@ public class App {
         //new Main().main();
         GameEngine myGE = new GameEngine();
         myGE.buildWorld();
-        myGE.run();
+        myGE.runGame();
     }
 }

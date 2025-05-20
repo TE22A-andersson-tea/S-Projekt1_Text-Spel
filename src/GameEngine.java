@@ -11,12 +11,16 @@ public class GameEngine {
     }
 
     public void buildWorld(){
-        Unlocker key1 = new Unlocker("key", "Fin", 0, 10, 1);
-        Lock lock1 = new Lock(101);
-        keyMapping.put(key1.getId, lock1.getId);
+        Unlocker key1 = new Unlocker("key", "Silver", 0, 10, 1);
+        Lock lock1 = new Lock("lock", "Silver", 101, true);
+        keyMapping.put(key1.getId(), lock1.getId());
 
-        User user1 = new User(null);
+        User user1 = new User("Steve");
         user1.setName();
+    }
+
+    public void runGame(){
+        
     }
     /*
      * Item{

@@ -7,6 +7,7 @@ public class Consumable extends InteractibleItem{
 
     @Override
     public void useItem(InteractibleItem interactibleItem){
-        Inventory.delete();
+        //Inventory.backpack.remove(interactibleItem.getId());
+        
     }
 }

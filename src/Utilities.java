@@ -7,6 +7,7 @@ public class Utilities {
 
     }
 
+    //A method to choose a (int) alternative from a list, then checks if its an okey answer
     public static int chooseAlternative(String prompt, ArrayList<Item> alternatives, boolean decrement){
         int altNumber;
         Scanner myScanner = new Scanner(System.in);
@@ -33,4 +34,6 @@ public class Utilities {
         }
         return altNumber;
     }
+
+
 }

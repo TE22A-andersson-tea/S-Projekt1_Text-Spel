@@ -1,34 +1,41 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Room extends WorldObject{
-    private String description;
-    private String name;
     //private String whichRoom; till exempel "tredje dörren till höger"  ???
-    private InteractibleFurniture contains;
-    private int numFurniture;
+    private List<InteractibleFurniture> contains = new ArrayList<>();
     private boolean locked;
-    private ArrayList<Furniture> furnitures = new ArrayList<>();
-    private ArrayList<Room> conectingRooms = new ArrayList<>();
+    private List<Furniture> furnitures = new ArrayList<>();
+    private List<Room> conectingRooms = new ArrayList<>();
+    private List<InteractibleItem> items = new ArrayList<>();
+    private int numFurniture = furnitures.size();
     Scanner myScanner = new Scanner(System.in);
     
-
-    public Room(String name, String description, int id, boolean locked){
+    
+    public Room(String name, String description, int id){
         super(name, description, id);
-        this.locked = locked;
     }
 
-    public boolean getLockedStatus(){
-        return locked;
+    public List<InteractibleItem> getItems() {
+        return items;
     }
 
-    public void enterRoom(Room chosenRoom){  //Vad vill jag att denna ska göra?
-        if (chosenRoom.getLockedStatus() == false) {
-            System.out.println(chosenRoom.getDescription());
-            chosenRoom.displayInventory();
+    public void setItems(List<InteractibleItem> items) {
+        this.items = items;
+    }
+
+    // Return boolen if enter succeeds, use this returned boolean in game engine to set to active room if success
+    public boolean enterRoom(){ 
+        if (Door.Lock.getLockedStatus() == false) {
+            System.out.println("You have now entered " + getName());
+            System.out.println(getDescription());
+            displayInventory();
+            return true;
         }
         else{
-            System.out.println("The door to " + chosenRoom.name + " is locked\nYou have to find something to open it with");
+            System.out.println("The door to " + getName() + " is locked\nYou have to find something to open it with");
+            return false;
         }
         
     }
@@ -37,13 +44,40 @@ public class Room extends WorldObject{
         furnitures.add(furniture);
     }
 
+    public List<Furniture> getFurniture() {
+        return furnitures;
+    }
+
+    public List<InteractibleFurniture> getInteractibleFurniture() {
+        return contains;
+    }
+    
+    public void addInteractibleFurniture(InteractibleFurniture furniture) {
+        contains.add(furniture);
+    }
+
     public void displayInventory(){
+        System.out.println("This room contains these furnitures: ");
         for (int i = 0; i < furnitures.size(); i++) {
             Furniture furniture = furnitures.get(i);
             System.out.println((i+1) + " " + furniture.getName());
         }
+         for (int i = 0; i < contains.size(); i++) {
+            InteractibleFurniture furniture = contains.get(i);
+            System.out.println((i+1) + " " + furniture.getName());
+        }
+        System.out.println("And contains these items: ");
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
+             System.out.println((i+1) + " " + item.getName());
+        }
        
     }
+
+    public List<InteractibleItem> getInteractibleItem() {
+        return InteractibleItem
+    }
+
 
 
 }

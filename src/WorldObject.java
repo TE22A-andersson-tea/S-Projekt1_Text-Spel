@@ -1,7 +1,7 @@
 public class WorldObject {
-    public String name;
-    public String description;
-    public int id;
+    private String name;
+    private String description;
+    private int id;
 
     public WorldObject (String name, String description, int id){
        this.name = name;

@@ -1,10 +1,23 @@
 public class Door extends InteractibleFurniture{
-    public Room room;
-    public boolean locked;
+    private Room leadsTo;
+    private Lock lock;
 
-    public Door(String name, String description, int id, Room room, boolean locked){
-        super(name, description, id, room, locked);
-        this.locked = locked;
-        
+    public Door(String name, String description, int id, Room room, Room leadsTo){
+        super(name, description, id, room);
+       this.leadsTo = leadsTo;
     }
+
+    public Door(String name, String description, int id, Room room, Room leadsTo, Lock lock){
+        this(name, description, id, room, leadsTo);
+       this.lock = lock;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public Room getLeadsTo(){
+        return leadsTo;
+    }
+
 }

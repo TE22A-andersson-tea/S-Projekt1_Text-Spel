@@ -1,17 +1,12 @@
 import java.util.Scanner;
 
-public class User {
-    private String name;
+public class User extends WorldObject{
     private Inventory backpack;
 
-    public User(String name){
-        this.name = name;
+    public User(String name, String description, int id){
+        super(name, description, id);
         backpack = new Inventory();
     }
-
-    /*public void setInventory(Inventory backpack) { Vad gör denna?? behöver jag den?
-        this.backpack = backpack;
-    }*/
 
     public String setName(){
         Scanner myScanner = new Scanner(System.in);
@@ -20,11 +15,12 @@ public class User {
         return "Hello " + name + "!";
     }
 
-    public String getName(){
-        return name;
-    }
 
     public void setInventory(Inventory backpack) {
         this.backpack = backpack;
+    }
+
+    public void addToBackpack(InteractibleItem item){
+        backpack.addItem(item);
     }
 }

@@ -6,7 +6,7 @@ public class Consumable extends InteractibleItem{
     }
 
     @Override
-    public void useItem(InteractibleItem interactibleItem){
+    public void useItem(Inventory backpack){
         //Inventory.backpack.remove(interactibleItem.getId());
         
     }

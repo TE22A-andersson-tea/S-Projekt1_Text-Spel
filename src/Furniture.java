@@ -11,6 +11,5 @@ public class Furniture extends WorldObject{
         System.out.println("This is a " + name);
         System.out.println(description); 
     }
-
     
 }

@@ -1,26 +1,34 @@
+import java.awt.ItemSelectable;
 import java.util.ArrayList;
 
 public class Inventory {
-    private int numItems;
-    public int maxItems = 7;
-    public ArrayList<Item> items = new ArrayList<>(maxItems);
-
+    private int maxItems = 7;
+    public ArrayList<InteractibleItem> items = new ArrayList<>(maxItems); //ändra Item till InteractibleItems
+    private int numItems = items.size();
+    
     public Inventory(){
 
     }
 
+    public int getNumItems(){
+        return numItems;
+    }
+
     public void displayInventory(){
-        for (int i = 0; i < maxItems && i <= numItems; i++) {
-            Item item = items.get(i); 
-            System.out.println((i+1) + " " + item.getName());
+        if (!items.isEmpty()) { //if (items.size()>0)
+            for (int i = 0; i < maxItems && i < numItems; i++) {
+                Item item = items.get(i); 
+                System.out.println((i+1) + " " + item.getName());
+            }
+        }
+        else{
+            System.out.println("You have nothing in your backpack");
         }
     }
 
-    public void addItem(Item item, int numItems, int maxItems){
-        
+    public void addItem(InteractibleItem item){
         if (numItems < maxItems) {
             items.add(item);
-            numItems++;
             System.out.println(item + " has been added to your backpack!");
         }
         else{
@@ -30,10 +38,20 @@ public class Inventory {
     }
 
     public void leaveItem(){
-        int index = Utilities.chooseAlternative("Which item would you like to leave? ", items, true);
+        int index = Utilities.chooseAlternative("Which item would you like to leave? ",items , true);
         
         items.remove(index);
        
     } 
+
+    public void getItemIndex(){
+        
+        //ta reda på item:s index i listan??
+        /*while (i != itemIndex) {
+            for (int i = 0; i < numItems; i++) {
+                
+            }
+        }*/
+    }
         
 }

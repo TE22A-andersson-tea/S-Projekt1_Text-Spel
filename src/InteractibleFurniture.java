@@ -1,10 +1,8 @@
 public class InteractibleFurniture extends Furniture{
     public Inventory contains;
-    public boolean locked;
 
-    public InteractibleFurniture(String name, String description, int id, Room room, boolean locked){
+    public InteractibleFurniture(String name, String description, int id, Room room){
         super(name, description, id, room);
-        this.locked = locked;
         contains = new Inventory();
 
     }

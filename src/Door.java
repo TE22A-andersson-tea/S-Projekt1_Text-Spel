@@ -20,4 +20,8 @@ public class Door extends InteractibleFurniture{
         return leadsTo;
     }
 
+    public Lock getLock() {
+        return lock;
+    }
+
 }

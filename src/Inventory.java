@@ -1,4 +1,3 @@
-import java.awt.ItemSelectable;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -15,8 +14,10 @@ public class Inventory {
     }
 
     public void displayInventory(){
+        System.out.println("Displaying Backpack: ");
         if (!items.isEmpty()) { //if (items.size()>0)
-            for (int i = 0; i < maxItems && i < numItems; i++) {
+
+            for (int i = 0; i == numItems; i++) {
                 Item item = items.get(i); 
                 System.out.println((i+1) + " " + item.getName());
             }
@@ -29,7 +30,7 @@ public class Inventory {
     public void addItem(InteractibleItem item){
         if (numItems < maxItems) {
             items.add(item);
-            System.out.println(item + " has been added to your backpack!");
+            System.out.println(item.getName() + " has been added to your backpack!");
         }
         else{
             System.out.println("You have too many items in your backpack!\n You have to leave one item too pick up a new one");

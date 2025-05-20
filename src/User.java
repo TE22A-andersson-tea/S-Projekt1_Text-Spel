@@ -23,4 +23,8 @@ public class User extends WorldObject{
     public void addToBackpack(InteractibleItem item){
         backpack.addItem(item);
     }
+
+    public Inventory getBackpack() {
+        return backpack;
+    }
 }

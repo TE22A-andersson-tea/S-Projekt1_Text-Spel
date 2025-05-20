@@ -12,13 +12,7 @@ public class OpenDoorAction implements Action{
 
     @Override
     public boolean execute(User currentUser, Room currentRoom, MainGameEngine engine) {
-        List<InteractibleFurniture> intFurniture = currentRoom.getInteractibleFurniture();
-        Room leadsTo = null;
-        for(Furniture furniture : intFurniture) {
-            if(furniture instanceof Door door) {
-                leadsTo = door.getLeadsTo();
-            }
-        }
+        Room leadsTo = findRoom(currentRoom);
         if(leadsTo == null) {
             return false;
         }
@@ -29,6 +23,17 @@ public class OpenDoorAction implements Action{
             return true;
         }
         return false;
+    }
+
+    private Room findRoom(Room currentRoom) {
+        List<InteractibleFurniture> intFurniture = currentRoom.getInteractibleFurniture();
+        Room leadsTo = null;
+        for(Furniture furniture : intFurniture) {
+            if(furniture instanceof Door door) {
+                leadsTo = door.getLeadsTo();
+            }
+        }
+        return leadsTo;
     }
 
 }

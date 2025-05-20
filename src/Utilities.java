@@ -16,8 +16,10 @@ public class Utilities {
 
         while (true) {
             System.out.println(prompt);
+            int i = 1;
             for (Item alt : alternatives) {
-                System.out.println(alt);
+                System.out.println(i + ". " + alt.getName());
+                i++;
             }
             String numString = myScanner.nextLine();
             try {

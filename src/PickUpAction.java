@@ -11,6 +11,10 @@ public class PickUpAction implements Action{
     public boolean execute(User currentUser, Room currentRoom, MainGameEngine engine) {
        List<InteractibleItem> alt = currentRoom.getItems();
 
+       if(alt.size() < 1){
+        System.out.println("There is nothing to pick up...");
+        return false;
+       }
         int index = Utilities.chooseAlternative("Which item do you wish to pick up?", 
         alt, true);
         currentUser.addToBackpack(alt.get(index));

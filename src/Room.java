@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Room extends WorldObject{
     //private String whichRoom; till exempel "tredje dörren till höger"  ???
     private List<InteractibleFurniture> contains = new ArrayList<>();
-    private boolean locked;
     private List<Furniture> furnitures = new ArrayList<>();
     private List<Room> conectingRooms = new ArrayList<>();
     private List<InteractibleItem> items = new ArrayList<>();
@@ -25,18 +24,37 @@ public class Room extends WorldObject{
         this.items = items;
     }
 
+    private Door findDoor() {
+        List<InteractibleFurniture> intFurniture = getInteractibleFurniture();
+        for(Furniture furniture : intFurniture) {
+            if(furniture instanceof Door door) {
+                return door;
+            }
+        }
+        return null;
+    }
+
     // Return boolen if enter succeeds, use this returned boolean in game engine to set to active room if success
     public boolean enterRoom(){ 
-        if (Door.Lock.getLockedStatus() == false) {
-            System.out.println("You have now entered " + getName());
-            System.out.println(getDescription());
-            displayInventory();
-            return true;
-        }
-        else{
-            System.out.println("The door to " + getName() + " is locked\nYou have to find something to open it with");
+        Door door = findDoor();
+        if (door == null) {
+            System.out.println("There is no door...");
             return false;
         }
+        else{
+            if (door.getLock().getLockedStatus()) {
+                System.out.println("The door is locked you have to find something to open it with...");
+                return false;
+            }
+             else{
+                System.out.println("You have now entered " + getName());
+                System.out.println(getDescription());
+                displayInventory();
+                return true;
+             }
+        }
+       
+        
         
     }
 
@@ -57,6 +75,7 @@ public class Room extends WorldObject{
     }
 
     public void displayInventory(){
+        //Om rummet inte innehåller några furniture eller items säg det
         System.out.println("This room contains these furnitures: ");
         for (int i = 0; i < furnitures.size(); i++) {
             Furniture furniture = furnitures.get(i);
@@ -75,9 +94,11 @@ public class Room extends WorldObject{
     }
 
     public List<InteractibleItem> getInteractibleItem() {
-        return InteractibleItem
+        return items;
     }
 
-
+    public void addInteractibleItem(InteractibleItem item){
+        items.add(item);
+    }
 
 }

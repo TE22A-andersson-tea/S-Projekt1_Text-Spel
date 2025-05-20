@@ -14,6 +14,7 @@ public class MainGameEngine {
     User currentUser;
     Room currentRoom;
     int currentId = 0;
+    
 
     public MainGameEngine() {
         
@@ -47,19 +48,24 @@ public class MainGameEngine {
 
         setCurrentRoom(room1);
 
-        
-
+        Unlocker key1 = new Unlocker("Skeleton Key", "An important locking key", 0, 10, currentId++);
+        room2.addInteractibleItem(key1);
         room2.addFurniture(new Furniture("Dining table", 
         "The dining table is overfull with delicious food and desserts", currentId++, 
         room2));
 
-        room2.addInteractibleFurniture(new Door("Stair Door", "This door leads to the main stairs", currentId++, room2, room3));
+        Lock lock1 = new Lock("lock", "Silver", 101, true);
+        keyMapping.put(key1.getId(), lock1.getId());
+        room2.addInteractibleFurniture(new Door("Stair Door", "This door leads to the main stairs", currentId++, room2, room3, lock1));
 
-        User currentUser = new User("Steve", "Blond", 3);
+
+        currentUser = new User("Steve", "Blond", 3);
 
         // Add possible game actions
         gameActions.add(new LookAction());
         gameActions.add(new OpenDoorAction());
+        gameActions.add(new PickUpAction());
+        gameActions.add(new DisplayBackpackAction());
 
         gameRooms.add(room1);
         gameRooms.add(room2);

@@ -7,6 +7,7 @@ public class Utilities {
 
     }
 
+    // varför är den static??
     //A method to choose a (int) alternative from a list, then checks if its an okey answer
     public static int chooseAlternative(String prompt, ArrayList<Item> alternatives, boolean decrement){
         int altNumber;

@@ -1,29 +1,37 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Room {
+public class Room extends WorldObject{
     private String description;
     private String name;
+    //private String whichRoom; till exempel "tredje dörren till höger"  ???
     private InteractibleFurniture contains;
     private int numFurniture;
     private boolean locked;
-    public ArrayList<Furniture> furnitures = new ArrayList<>();
-     //private String whichRoom; till exempel "tredje dörren till höger"  ???
+    private ArrayList<Furniture> furnitures = new ArrayList<>();
+    private ArrayList<Room> conectingRooms = new ArrayList<>();
+    Scanner myScanner = new Scanner(System.in);
+    
 
-    public Room(String description, String name, boolean locked){
+    public Room(String name, String description, int id, boolean locked){
+        super(name, description, id);
+        this.locked = locked;
+    }
+
+    public boolean getLockedStatus(){
+        return locked;
+    }
+
+    public void enterRoom(Room chosenRoom){  //Vad vill jag att denna ska göra?
+        if (chosenRoom.getLockedStatus() == false) {
+            System.out.println(chosenRoom.getDescription());
+            chosenRoom.displayInventory();
+        }
+        else{
+            System.out.println("The door to " + chosenRoom.name + " is locked\nYou have to find something to open it with");
+        }
         
     }
-
-    public String getDescription(){
-        return description;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    /*public boolean enterRoom(String whichRoom){ Vad vill jag att denna ska göra?
-        
-    }*/
 
     public void addFurniture(Furniture furniture){ 
         furnitures.add(furniture);

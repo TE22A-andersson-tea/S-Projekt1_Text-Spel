@@ -25,6 +25,7 @@ public class GameEngine {
         
         InteractibleFurniture desk = new InteractibleFurniture("Desk", "made of dark wood", 0, hall, false);
         hall.addFurniture(desk);
+        
 
         boolean con = true; 
         

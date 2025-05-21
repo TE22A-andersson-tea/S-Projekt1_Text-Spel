@@ -24,7 +24,7 @@ public class Room extends WorldObject{
         this.items = items;
     }
 
-    private Door findDoor() {
+    public Door findDoor() {
         List<InteractibleFurniture> intFurniture = getInteractibleFurniture();
         for(Furniture furniture : intFurniture) {
             if(furniture instanceof Door door) {
@@ -36,25 +36,10 @@ public class Room extends WorldObject{
 
     // Return boolen if enter succeeds, use this returned boolean in game engine to set to active room if success
     public boolean enterRoom(){ 
-        Door door = findDoor();
-        if (door == null) {
-            System.out.println("There is no door...");
-            return false;
-        }
-        else{
-            if (door.getLock().getLockedStatus()) {
-                System.out.println("The door is locked you have to find something to open it with...");
-                return false;
-            }
-             else{
-                System.out.println("You have now entered " + getName());
-                System.out.println(getDescription());
-                displayInventory();
-                return true;
-             }
-        }
-       
-        
+        System.out.println("You have now entered " + getName());
+        System.out.println(getDescription());
+        displayInventory();
+        return true;
         
     }
 

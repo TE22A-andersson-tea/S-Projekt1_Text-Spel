@@ -5,10 +5,12 @@ public class LookAction implements Action{
     
     }
 
+    //Returnerar namnet denna action har, och skriver ut det i terminalen
     public String getName() {
         return name;
     }
 
+    //Beskriver rummet som användaren befinner sig i, t.ex vilka möbler som finns i rummet
     @Override
     public boolean execute(User currentUser, Room currentRoom, MainGameEngine engine) {
         System.out.println("You're standing in a room:");

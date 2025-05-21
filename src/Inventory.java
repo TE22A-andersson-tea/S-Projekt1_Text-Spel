@@ -5,14 +5,17 @@ public class Inventory {
     public ArrayList<InteractibleItem> items = new ArrayList<>(maxItems); //ändra Item till InteractibleItems
     private int numItems = items.size();
     
+    //Construktor
     public Inventory(){
 
     }
 
+    //Skriver ut hur många items som finns i inventoryt
     public int getNumItems(){
         return numItems;
     }
 
+    //Skriver ut allt som finns i användarens backpack, om den i tom så skrivs det ut
     public void displayInventory(){
         System.out.println("Displaying Backpack: ");
         if (!items.isEmpty()) { //if (items.size()>0)
@@ -27,6 +30,7 @@ public class Inventory {
         }
     }
 
+    //Lägger till en item i backpack (om användarens backpack har plats)
     public void addItem(InteractibleItem item){
         if (numItems < maxItems) {
             items.add(item);
@@ -38,6 +42,7 @@ public class Inventory {
        
     }
 
+    //Tar bort en item från inventory
     public void leaveItem(){
         int index = Utilities.chooseAlternative("Which item would you like to leave? ",items , true);
         

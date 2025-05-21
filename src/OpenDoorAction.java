@@ -6,28 +6,33 @@ public class OpenDoorAction implements Action{
     public OpenDoorAction() {
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
-    //Hittar först vilket rum dörren leder till
-    //Ändrar så att det nya rummet användaren går in i blir "currentRoom"
+    
+    
     @Override
     public boolean execute(User currentUser, Room currentRoom, MainGameEngine engine) {
+        //Hittar först dörren i rummet (om det finns någon)
         Door door = currentRoom.findDoor();
         if (door == null) {
             System.out.println("There is no door...");
             return false;
         }
         
+        //Om det inte finns ett lås på dörren
         if (door.getLock() == null) {
             Room leadsTo = door.getLeadsTo();
         
             if(leadsTo == null) {
                 return false;
             }
+
             boolean entered = leadsTo.enterRoom();
             
+            //Ändrar så att det nya rummet användaren går in i blir "currentRoom"
             if(entered) {
                 engine.setCurrentRoom(leadsTo);
                 return true;
@@ -35,38 +40,28 @@ public class OpenDoorAction implements Action{
             return false;
         }
 
+        //Om det finns ett låst lås på dörren
         if (door.getLock().getLockedStatus()) {
-            System.out.println("The door is locked you have to find something to open it with...");
+            System.out.println("The door is locked, you have to find something to open it with...");
             return false;
         }
 
         Room leadsTo = door.getLeadsTo();
         
-            if(leadsTo == null) {
-                return false;
-            }
-            boolean entered = leadsTo.enterRoom();
-            
-            if(entered) {
-                engine.setCurrentRoom(leadsTo);
-                return true;
-            }
+        //Om dörren inte leder till något rum
+        if(leadsTo == null) {
             return false;
-       
-       
-    }
-
-    //Denna metod behövs inte längre?
-    //Hittar vilket rum en dörr leder till
-    private Room findRoom(Room currentRoom) {
-        List<InteractibleFurniture> intFurniture = currentRoom.getInteractibleFurniture();
-        Room leadsTo = null;
-        for(Furniture furniture : intFurniture) {
-            if(furniture instanceof Door door) {
-                leadsTo = door.getLeadsTo();
-            }
         }
-        return leadsTo;
+
+        //Om det inte finns något låst lås går användaren bara in
+        boolean entered = leadsTo.enterRoom();
+        
+        if(entered) {
+            engine.setCurrentRoom(leadsTo);
+            return true;
+        }
+        return false;
+       
     }
 
 }

@@ -15,7 +15,6 @@ public class User extends WorldObject{
         return "Hello " + name + "!";
     }
 
-
     public void setInventory(Inventory backpack) {
         this.backpack = backpack;
     }

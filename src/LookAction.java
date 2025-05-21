@@ -6,6 +6,7 @@ public class LookAction implements Action{
     }
 
     //Returnerar namnet denna action har, och skriver ut det i terminalen
+    @Override
     public String getName() {
         return name;
     }

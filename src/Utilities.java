@@ -8,7 +8,7 @@ public class Utilities {
 
     }
 
-    // varför är den static??
+    // varför är den static ==> då behöver man inget objekt utan kan användas direkt på klassen
     //A method to choose a (int) alternative from a list, then checks if its an okey answer
     public static int chooseAlternative(String prompt, List<InteractibleItem> alternatives, boolean decrement){
         int altNumber;
@@ -39,7 +39,7 @@ public class Utilities {
         return altNumber;
     }
 
-
+    //Samma fast istället för att välja mellan items väljer man mellan sträng alternativ
     public static int chooseStringAlternative(String prompt, List<String> alternatives, boolean decrement){
         int altNumber;
         Scanner myScanner = new Scanner(System.in);

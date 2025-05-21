@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Inventory {
     private int maxItems = 7;
@@ -33,8 +34,7 @@ public class Inventory {
     //Lägger till en item i backpack (om användarens backpack har plats)
     public void addItem(InteractibleItem item){
         if (numItems < maxItems) {
-            items.add(item);
-            System.out.println(item.getName() + " has been added to your backpack!");
+            items.add(item); 
         }
         else{
             System.out.println("You have too many items in your backpack!\n You have to leave one item too pick up a new one");
@@ -50,14 +50,23 @@ public class Inventory {
        
     } 
 
-    public void getItemIndex(){
-        
-        //ta reda på item:s index i listan??
-        /*while (i != itemIndex) {
-            for (int i = 0; i < numItems; i++) {
-                
+    //Kollar igenom användarens backpack efter en Unlocker, returnar om den hittades
+    public Unlocker findUnlocker(){
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
+            
+            //Kollar om item är en Unlocker och byter typ på item (Item) till Unlocker
+            if (item instanceof Unlocker unlocker) {
+                return unlocker;
             }
-        }*/
+        }
+        return null;
     }
+
+    //Returnar listan items
+    public List<InteractibleItem> getInteractibleItem() {
+       return items;
+    }
+
         
 }

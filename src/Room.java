@@ -24,6 +24,7 @@ public class Room extends WorldObject{
         this.items = items;
     }
 
+    //Hittar första dörren i rummet användaren befinner sig i
     public Door findDoor() {
         List<InteractibleFurniture> intFurniture = getInteractibleFurniture();
         for(Furniture furniture : intFurniture) {
@@ -34,7 +35,7 @@ public class Room extends WorldObject{
         return null;
     }
 
-    // Return boolen if enter succeeds, use this returned boolean in game engine to set to active room if success
+    //Presenterar det nya rummet
     public boolean enterRoom(){ 
         System.out.println("You have now entered " + getName());
         System.out.println(getDescription());
@@ -59,21 +60,27 @@ public class Room extends WorldObject{
         contains.add(furniture);
     }
 
+    //Skriver ut alla furnitures och items som finns i rummet (om det finns några)
     public void displayInventory(){
         //Om rummet inte innehåller några furniture eller items säg det
-        System.out.println("This room contains these furnitures: ");
-        for (int i = 0; i < furnitures.size(); i++) {
-            Furniture furniture = furnitures.get(i);
-            System.out.println((i+1) + " " + furniture.getName());
+        if (furnitures.size() > 0 || contains.size() > 0) {
+            System.out.println("This room contains these furnitures: ");
+            for (int i = 0; i < furnitures.size(); i++) {
+                Furniture furniture = furnitures.get(i);
+                System.out.println((i+1) + " " + furniture.getName());
+            }
+            for (int i = 0; i < contains.size(); i++) {
+                InteractibleFurniture furniture = contains.get(i);
+                System.out.println((i+1) + " " + furniture.getName());
+            }
         }
-         for (int i = 0; i < contains.size(); i++) {
-            InteractibleFurniture furniture = contains.get(i);
-            System.out.println((i+1) + " " + furniture.getName());
-        }
-        System.out.println("And contains these items: ");
-        for (int i = 0; i < items.size(); i++) {
-            Item item = items.get(i);
-             System.out.println((i+1) + " " + item.getName());
+
+        if(items.size() > 0){
+            System.out.println("And contains these items: ");
+            for (int i = 0; i < items.size(); i++) {
+                Item item = items.get(i);
+                System.out.println((i+1) + " " + item.getName());
+            }
         }
        
     }
@@ -84,6 +91,10 @@ public class Room extends WorldObject{
 
     public void addInteractibleItem(InteractibleItem item){
         items.add(item);
+    }
+
+    public void removeItem(InteractibleItem item){
+        items.remove(item);
     }
 
 }
